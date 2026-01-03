@@ -170,22 +170,22 @@ plt.show()
 # Z = np.column_stack((waveem,fluxstdsavgol))
 # np.savetxt("masked_smoothed_spec.dat",Z,fmt='%s',delimiter='   ')
 
-# #Sensitivity curve
-# hdu = fits.open("sens_ngc1313x2.fits")
-# sens = hdu[0].data
-# hdr = hdu[0].header
-# deltaL = hdr['CD1_1']
-# lamda_i = hdr['CRVAL1'] 
-# Nlamda = len(sens)
-# lamda_f = lamda_i + Nlamda*deltaL
-# wvlen = np.arange(lamda_i, lamda_f, deltaL)[1:]
+#Sensitivity curve
+hdu = fits.open("sens_ngc1313x2.fits")
+sens = hdu[0].data
+hdr = hdu[0].header
+deltaL = hdr['CD1_1']
+lamda_i = hdr['CRVAL1'] 
+Nlamda = len(sens)
+lamda_f = lamda_i + Nlamda*deltaL
+wvlen = np.arange(lamda_i, lamda_f, deltaL)[1:]
 
-# plt.figure()
-# plt.plot(wvlen,sens,'k-')
-# plt.tick_params(axis='both', which='major', labelsize=12)
-# plt.xlabel("Wavelength [Angstrom]",fontsize=12)
-# plt.ylabel("Sensitivity [arb. units]",fontsize=12)
-# plt.show()
+plt.figure()
+plt.plot(wvlen,sens,'k-')
+plt.tick_params(axis='both', which='major', labelsize=12)
+plt.xlabel("Wavelength [Angstrom]",fontsize=12)
+plt.ylabel("Sensitivity [arb. units]",fontsize=12)
+plt.show()
 
 # wavemin = 3500
 # wavemax = 6000
